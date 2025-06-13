@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Geometry Dash Demon List</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 50;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal.active {
+      display: flex;
+    }
+  </style>
+</head>
+<body class="dark bg-gray-900 text-white min-h-screen p-6 transition-colors duration-300">
+  <div class="max-w-4xl mx-auto">
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-3xl font-bold text-center w-full">Geometry Dash Demon List</h1>
+      <div class="relative inline-block text-left ml-auto">
+        <button id="themeMenuButton" class="text-sm px-3 py-1 rounded bg-gray-700 hover:bg-gray-600">
+          Choose Theme
+        </button>
+        <div id="themeDropdown" class="hidden absolute right-0 z-10 mt-2 w-40 bg-gray-800 border border-gray-700 rounded shadow-lg">
+          <button data-theme="#C840FF" class="block w-full text-left px-4 py-2 hover:bg-gray-700 text-purple-300">Purple</button>
+          <button data-theme="#7196FF" class="block w-full text-left px-4 py-2 hover:bg-gray-700 text-blue-300">Light Blue</button>
+          <button data-theme="#AAFF00" class="block w-full text-left px-4 py-2 hover:bg-gray-700 text-lime-300">Green</button>
+          <button data-theme="#FF5D5D" class="block w-full text-left px-4 py-2 hover:bg-gray-700 text-red-300">Red</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap gap-4 mb-4 justify-center">
+      <input id="search" type="text" placeholder="Search demons..." class="px-4 py-2 rounded bg-gray-800 border border-gray-700 text-white w-full max-w-sm" />
+      <select id="difficultyFilter" class="px-4 py-2 rounded bg-gray-800 border border-gray-700 text-white">
+        <option value="">All Difficulties</option>
+        <option value="Easy">Easy</option>
+        <option value="Medium">Medium</option>
+        <option value="Hard">Hard</option>
+        <option value="Insane">Insane</option>
+        <option value="Extreme">Extreme</option>
+      </select>
+    </div>
+
+    <div id="demonList" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+  </div>
+
+  <div id="videoModal" class="modal">
+    <div class="bg-black rounded-lg overflow-hidden max-w-3xl w-full">
+      <div class="flex justify-end p-2">
+        <button onclick="closeModal()" class="text-white text-xl">&times;</button>
+      </div>
+      <div class="aspect-w-16 aspect-h-9">
+        <iframe id="modalIframe" class="w-full h-96" src="" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
